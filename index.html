@@ -980,14 +980,19 @@
 
     </div>
     <div class="forGrid">
-
-      <script
-        src="https://maps.google.com/maps/api/js?key=AIzaSyCmQCFm1bfUmdpZmFPR36p3ReEGwV7A0-8&language=ja"></script>
+<script type="text/javascript" src="apikey.js">
+  
+const apikey = config.apikey
+        const postalgetkey = config.postalgetkey
+        const snsgetkey = config.snsgetkey
+</script>
+  
+      <script src=`https://maps.google.com/maps/api/js?key=${apikey}&language=ja`></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script>
 
 
-
+      
 
         let ballSize, barHeight, barWidth, locater, locater2, setNum, loopCount, skipinputs, makeInfoFlg, mistake
         let looopCnt = document.getElementById('loopcount')
@@ -1495,13 +1500,13 @@
           }
         }
 
-        const postalGet = 'https://script.google.com/macros/s/AKfycbwp_lYxMAT3zKW0J8iGma53ZogIEWQUpGlrOjrBucZoCnVe8ivHfmSbuilqCch-rKY/exec';
+        const postalGet = `https://script.google.com/macros/s/${postalgetkey}/exec`;
         fetch(postalGet).then(response => response.json()).then(data => {
           randomPostals = data[0];
           document.getElementById('dartsBtn').style.color = 'var(--whitecolor)'
         })
 
-        const endpoint = "https://script.google.com/macros/s/AKfycbypmDkRQ6_muh8iF9dNVA0q2ycBI-4IQXEKX7xbwf71_qlB8R9-9HUCvVoFTP0Ftek0tA/exec";
+        const endpoint = `https://script.google.com/macros/s/${snsgetkey}/exec`;
         fetch(endpoint)
           .then(response => response.json())
           .then(data => {
